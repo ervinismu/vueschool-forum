@@ -44,9 +44,9 @@ export default {
   },
 
   methods: {
-    addPost (evenData) {
-      const post = evenData.post
-      const postId = evenData.post['.key']
+    // { post } is destructuring object
+    addPost ({ post }) {
+      const postId = post['.key']
       this.$set(sourceData.posts, postId, post)
       this.$set(this.thread.posts, postId, postId)
       this.$set(sourceData.users[post.userId].posts, postId, postId)
